@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: backend
+  name: backend
+spec:
+  ports:
+  - protocol: TCP
+    port: 443
+    name: appport
+    targetPort: 8000
+  type: ClusterIP
+  selector:
+    app: backend
