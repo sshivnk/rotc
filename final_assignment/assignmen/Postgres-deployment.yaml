@@ -1,19 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres
+  name: db
+  namespace: crud-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: postgres
+      service: db
   template:
     metadata:
       labels:
-        service: postgres
+        service: db
     spec:
       containers:
-        - name: postgres
+        - name: db
           image: postgres:16
           ports:
             - containerPort: 5432
@@ -25,10 +26,12 @@ spec:
               value: postgres
             - name: POSTGRES_PASSWORD
               valueFrom:
-                secretName: postgres
+                secretKeyRef:
+                  name: postgres
+                  key: db-password
             - name: POSTGRES_DB
               value: postgres
       volumes:
         - name: postgres-data
           persistentVolumeClaim:
-            claimName: postgres-pvc
+            claimName: crud-app-pvc

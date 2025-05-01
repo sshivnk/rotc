@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
+  namespace: crud-app
 spec:
   replicas: 1
   selector:
@@ -14,7 +15,8 @@ spec:
     spec:
       containers:
         - name: backend
-          image: crud-app
+          image: docker.apple.com/crud_app:latest
+          imagePullPolicy: Never
           ports:
             - containerPort: 8000
           env:
@@ -27,6 +29,6 @@ spec:
             - name: db_password
               valueFrom:
                 secretKeyRef:
-                  name: db-password
+                  name: postgres
                   key: db-password
       restartPolicy: Always
