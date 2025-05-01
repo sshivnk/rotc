@@ -1,3 +1,4 @@
+```bash
 k get all -n crud-app
 NAME                           READY   STATUS    RESTARTS   AGE
 pod/backend-57669d99c7-mzv4r   1/1     Running   0          11s
@@ -25,3 +26,5 @@ curl -X POST http://localhost:8000/users -d '{"name":"Shivank Sharma", "email":"
 % curl -X GET http://localhost:8000/users
 [{"id":1,"name":"John Doe","email":"jdoe@example.com"},
 {"id":2,"name":"Shivank Sharma","email":"sshivnk@example.com"}]
+
+```
