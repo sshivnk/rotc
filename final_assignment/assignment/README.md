@@ -1,3 +1,5 @@
+Contributor - Shivank Sharma
+
 ```bash
 k get all -n crud-app
 NAME                           READY   STATUS    RESTARTS   AGE
