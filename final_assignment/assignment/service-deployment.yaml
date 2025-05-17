@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: docker.apple.com/crud_app:latest
+          image: crud_app:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 8000
